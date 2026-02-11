@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Traffic Violation Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <h1>AI Traffic & Speed Violation Dashboard</h1>
+    </header>
+
+    <main class="content">
+      <section class="filters-card">
+        <h2>Filters</h2>
+        <div class="filters-grid">
+          <div>
+            <label for="vehicleNumber">Vehicle Number</label>
+            <input id="vehicleNumber" type="text" placeholder="e.g. KA01AB1234" />
+          </div>
+          <div>
+            <label for="fromDate">From Date</label>
+            <input id="fromDate" type="date" />
+          </div>
+          <div>
+            <label for="toDate">To Date</label>
+            <input id="toDate" type="date" />
+          </div>
+          <div>
+            <label for="violationType">Violation Type</label>
+            <select id="violationType">
+              <option value="">All</option>
+              <option value="over_speeding">Over-speeding</option>
+              <option value="signal_jump">Signal Jump</option>
+            </select>
+          </div>
+          <div class="filter-actions">
+            <button id="searchBtn">Search</button>
+            <button id="resetBtn" class="secondary">Reset</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="table-card">
+        <h2>Violation Records</h2>
+        <table id="violationsTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Vehicle Number</th>
+              <th>Type</th>
+              <th>Speed (km/h)</th>
+              <th>Date &amp; Time</th>
+              <th>Snapshot</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Filled dynamically via JS from the Flask API -->
+          </tbody>
+        </table>
+        <div id="noData" class="no-data hidden">
+          No violations found for the selected filters.
+        </div>
+      </section>
+    </main>
+
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>
+
+
